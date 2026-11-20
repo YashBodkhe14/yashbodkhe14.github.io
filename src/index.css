@@ -326,6 +326,89 @@
 }
 :root[data-palette='ember'] .accent-text { color: transparent; }
 
+
+/* 13b · Midnight chrome + liquid glass (2026-11-20) */
+:root[data-palette='chrome-glass'] {
+  --background: #08080a; --surface: #121214; --surface-2: #1a1a1d; --border: #2a2a2e;
+  --foreground: #f4f4f5; --muted-foreground: #9d9da6; --accent: #d4d4d8; --accent-2: #bfdbfe;
+  --on-accent: #0a0a0b; --grid: #d4d4d8; --glow: rgba(212,212,216,0.22);
+  --term-bg: rgba(10,10,12,0.30); --term-fg: #f4f4f5; --term-dim: #9d9da6; --term-line: rgba(255,255,255,0.16);
+  --term-a1: #e4e4e7; --term-a2: #bfdbfe; color-scheme: dark;
+  --accent-fill: linear-gradient(180deg,#ffffff 0%,#d4d4d8 45%,#71717a 100%);
+  --card-bg: transparent; --card-blur: none;
+}
+:root[data-palette='chrome-glass'] .accent-text { color: transparent; }
+:root[data-palette='chrome-glass'] body { background: transparent; }
+
+.glass-fx, .chrome-orbs { display: none; }
+
+:root[data-palette='chrome-glass'] .chrome-orbs {
+  display: block; position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+}
+.chrome-orbs span { position: absolute; border-radius: 50%; filter: blur(70px); will-change: transform; }
+.chrome-orbs span:nth-child(1) {
+  width: 52vw; height: 52vw; left: -10vw; top: -12vw; opacity: 0.55;
+  background: radial-gradient(circle, #f4f4f5 0%, #71717a 40%, transparent 68%);
+  animation: orb-a 26s ease-in-out infinite alternate;
+}
+.chrome-orbs span:nth-child(2) {
+  width: 42vw; height: 42vw; right: -12vw; top: 28vh; opacity: 0.45;
+  background: radial-gradient(circle, #bfdbfe 0%, #3b82f6 35%, transparent 68%);
+  animation: orb-b 32s ease-in-out infinite alternate;
+}
+.chrome-orbs span:nth-child(3) {
+  width: 58vw; height: 58vw; left: 24vw; bottom: -30vw; opacity: 0.4;
+  background: radial-gradient(circle, #e4e4e7 0%, #52525b 40%, transparent 68%);
+  animation: orb-c 38s ease-in-out infinite alternate;
+}
+@keyframes orb-a { to { transform: translate(22vw, 30vh) scale(1.15); } }
+@keyframes orb-b { to { transform: translate(-30vw, -18vh) scale(0.9); } }
+@keyframes orb-c { to { transform: translate(-18vw, -40vh) scale(1.1); } }
+
+:root[data-palette='chrome-glass'] .glass {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 18px 50px -18px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+:root[data-palette='chrome-glass'] .glass > :not(.glass-fx):not([class*='absolute']):not(svg) {
+  position: relative; z-index: 1;
+}
+:root[data-palette='chrome-glass'] .glass-fx {
+  display: block; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+}
+.glass-fx-refract {
+  overflow: hidden; isolation: isolate;
+  -webkit-backdrop-filter: blur(5px) saturate(180%) brightness(1.08);
+  backdrop-filter: blur(5px) saturate(180%) brightness(1.08);
+  filter: url(#liquid-glass);
+}
+.glass-fx-tint {
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,0.16), transparent 55%),
+    linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05));
+}
+.glass-fx-shine {
+  box-shadow:
+    inset 1.5px 1.5px 0 rgba(255,255,255,0.55),
+    inset -1px -1px 0 rgba(255,255,255,0.14),
+    inset 0 0 22px rgba(255,255,255,0.07);
+}
+:root[data-palette='chrome-glass'] .glass-card {
+  background: transparent !important; border-color: transparent !important;
+}
+:root[data-palette='chrome-glass'] .glass-panel {
+  background: rgba(12, 12, 14, 0.38) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+:root[data-palette='chrome-glass'] .glass-term { background: rgba(10,10,12,0.25) !important; }
+:root[data-palette='chrome-glass'] .glass-term .glass-fx-refract { filter: none; backdrop-filter: blur(14px) saturate(170%) brightness(1.05); -webkit-backdrop-filter: blur(14px) saturate(170%) brightness(1.05); }
+:root[data-palette='chrome-glass'] .glass-bar { background: rgba(8,8,10,0.45) !important; }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

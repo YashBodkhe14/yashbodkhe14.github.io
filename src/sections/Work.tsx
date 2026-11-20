@@ -5,6 +5,7 @@ import { MagicCard } from '@/components/ui/magic-card'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { projects } from '@/data'
 import { Label } from './Sections'
+import { GlassFx } from '@/components/Glass'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -93,7 +94,7 @@ export function Work() {
               mode="orb"
               glowFrom="var(--accent)"
               glowTo="var(--accent-2)"
-              className="group bg-surface relative min-h-[420px] [&>.z-40]:h-full w-full overflow-hidden rounded-3xl md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]"
+              className="glass-card group bg-surface relative min-h-[420px] [&>.z-40]:h-full w-full overflow-hidden rounded-3xl md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]"
             >
               <article className="relative flex h-full min-h-[420px] flex-col justify-between p-6">
                 <Art i={i} />
@@ -109,7 +110,7 @@ export function Work() {
                 <div className="font-display stretch-62 text-outline relative text-[clamp(3rem,6vw,5.5rem)] leading-[0.8] font-black" aria-hidden="true">
                   {pad(i + 1)}
                 </div>
-                <div className="relative -mx-6 -mb-6 bg-gradient-to-b from-transparent to-[var(--surface)] to-40% px-6 pt-12 pb-6">
+                <div className="glass-panel relative -mx-6 -mb-6 bg-gradient-to-b from-transparent to-[var(--surface)] to-40% px-6 pt-12 pb-6">
                   <h3 className="font-display stretch-62 mb-2 text-[clamp(2rem,3.6vw,3.2rem)] leading-[0.9] font-extrabold uppercase">{p.name}</h3>
                   <p className="stretch-90 mb-4 max-w-[36ch] leading-snug">{p.blurb}</p>
                   <ul className="flex flex-wrap gap-1.5">

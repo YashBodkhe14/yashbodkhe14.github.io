@@ -10,6 +10,7 @@ import { About, Contact, Log, Tapes } from '@/sections/Sections'
 import { Work } from '@/sections/Work'
 import { Console } from '@/sections/Console'
 import { PalettePicker } from '@/components/PalettePicker'
+import { ChromeOrbs, GlassDefs, GlassFx } from '@/components/Glass'
 import { site } from '@/data'
 import { useClock, useTheme } from '@/lib/hooks'
 import { useSyncExternalStore } from 'react'
@@ -68,10 +69,13 @@ export default function App() {
         Skip to content
       </a>
       <ScrollProgress className="top-0 z-[70] h-[3px] bg-gradient-to-r from-[var(--accent-2)] to-[var(--accent)]" />
+      <GlassDefs />
+      <ChromeOrbs />
       <div className="grain" aria-hidden="true" />
       {import.meta.env.VITE_PALETTE_PICKER === '1' && <PalettePicker />}
 
-      <header className="eyebrow bg-background/75 border-border/60 fixed inset-x-0 top-0 z-[60] flex items-center justify-between border-b px-4 py-3 backdrop-blur-md md:px-10">
+      <header className="glass glass-bar eyebrow bg-background/75 border-border/60 fixed inset-x-0 top-0 z-[60] flex items-center justify-between border-b px-4 py-3 backdrop-blur-md md:px-10">
+        <GlassFx />
         <a href="#top" onClick={go('#top')} aria-label="Back to top" className="font-display stretch-62 text-2xl font-black tracking-tight normal-case">
           Y<span className="text-accent">B</span>
         </a>
@@ -79,7 +83,8 @@ export default function App() {
       </header>
 
       <nav aria-label="Sections" className="fixed inset-x-0 bottom-4 z-[60] flex justify-center px-4">
-        <Dock iconSize={wide ? 40 : 32} iconMagnification={wide ? 58 : 32} className="border-border bg-surface/80 mt-0 gap-1 md:gap-2 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+        <Dock iconSize={wide ? 40 : 32} iconMagnification={wide ? 58 : 32} className="glass relative border-border bg-surface/80 mt-0 gap-1 md:gap-2 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+          <GlassFx />
           <DockIcon><NavItem href="#about" label="About"><UserRound className={icon} /></NavItem></DockIcon>
           <DockIcon><NavItem href="#log" label="Experience"><ScrollText className={icon} /></NavItem></DockIcon>
           <DockIcon><NavItem href="#work" label="Work"><Layers className={icon} /></NavItem></DockIcon>

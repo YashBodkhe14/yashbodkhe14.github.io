@@ -4,6 +4,7 @@ import { FlickeringGrid } from '@/components/ui/flickering-grid'
 import { HyperText } from '@/components/ui/hyper-text'
 import { SpinningText } from '@/components/ui/spinning-text'
 import { site } from '@/data'
+import { GlassFx } from '@/components/Glass'
 import { useCssVar, useReducedMotion, useFinePointer } from '@/lib/hooks'
 
 /** Name letters stretch (font width axis) and thicken toward the cursor. */
@@ -102,9 +103,10 @@ export function Hero() {
           {site.role}
         </HyperText>
         <span>{site.location}</span>
-        <span className="border-border bg-surface/70 text-foreground inline-flex items-center gap-2 rounded-full border px-3 py-1 backdrop-blur">
+        <span className="glass relative border-border bg-surface/70 text-foreground inline-flex items-center gap-2 rounded-full border px-3 py-1 backdrop-blur">
+          <GlassFx />
           <b className="bg-accent2 size-2 rounded-full shadow-[0_0_0_0_var(--accent-2)] [animation:ping-soft_1.8s_infinite]" />
-          All systems operational · {site.company}
+          <span>All systems operational · {site.company}</span>
         </span>
       </div>
 

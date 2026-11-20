@@ -7,6 +7,7 @@ import { BlurFade } from '@/components/ui/blur-fade'
 import { HyperText } from '@/components/ui/hyper-text'
 import { site, log, stack } from '@/data'
 import { cn } from '@/lib/utils'
+import { GlassFx } from '@/components/Glass'
 
 export function Label({ n, children }: { n: string; children: ReactNode }) {
   return (
@@ -70,13 +71,14 @@ export function About() {
         {site.stats.map((s, i) => (
           <BlurFade key={s.label} inView delay={i * 0.08}>
             <MagicCard
-              className="h-full rounded-2xl"
+              className="glass-card h-full rounded-2xl"
               gradientFrom="var(--accent)"
               gradientTo="var(--accent-2)"
               gradientColor="var(--surface-2)"
               gradientOpacity={0.9}
             >
-              <div role="listitem" className="flex h-full flex-col justify-between gap-6 p-5 md:p-6">
+              <div role="listitem" className="glass relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-2xl p-5 md:p-6">
+                <GlassFx />
                 <span className="eyebrow text-muted-foreground">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <p className="font-display stretch-62 flex items-baseline leading-[0.85] font-black">

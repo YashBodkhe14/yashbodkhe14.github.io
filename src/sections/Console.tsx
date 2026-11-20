@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent, type R
 import { BorderBeam } from '@/components/ui/border-beam'
 import { site, log, projects, stack } from '@/data'
 import { Label } from './Sections'
+import { GlassFx } from '@/components/Glass'
 
 type Line = { id: number; node: ReactNode }
 
@@ -160,8 +161,9 @@ export function Console({ onInvert }: { onInvert: () => void }) {
       <div
         ref={box}
         onClick={() => input.current?.focus({ preventScroll: true })}
-        className="relative max-w-[62rem] overflow-hidden rounded-2xl border border-[var(--term-line)] bg-[var(--term-bg)] text-[var(--term-fg)] shadow-[0_40px_120px_-40px_var(--glow)]"
+        className="glass glass-term relative max-w-[62rem] overflow-hidden rounded-2xl border border-[var(--term-line)] bg-[var(--term-bg)] text-[var(--term-fg)] shadow-[0_40px_120px_-40px_var(--glow)]"
       >
+        <GlassFx />
         <div className="flex items-center gap-1.5 border-b border-[var(--term-line)] px-4 py-3 font-mono text-xs">
           <span className="size-3 rounded-full bg-[var(--term-dim)]" />
           <span className="size-3 rounded-full bg-[var(--term-a1)]" />
