@@ -170,6 +170,73 @@
   color-scheme: light;
 }
 
+
+/* Dark candidates for Yash to pick from (2026-11-20) */
+/* True black + Orange */
+:root[data-palette='black-orange'] {
+  --background: #050505; --surface: #0e0e0e; --surface-2: #161616; --border: #262626;
+  --foreground: #f2f2f0; --muted-foreground: #8f8f8a; --accent: #ff6a3d; --accent-2: #ffd166;
+  --on-accent: #050505; --grid: #ff6a3d; --glow: rgba(255,106,61,0.35);
+  --term-bg: #050505; --term-fg: #f2f2f0; --term-dim: #8f8f8a; --term-line: #262626;
+  --term-a1: #ff6a3d; --term-a2: #ffd166; color-scheme: dark;
+}
+/* True black + Electric blue */
+:root[data-palette='black-blue'] {
+  --background: #050505; --surface: #0d0e12; --surface-2: #15171d; --border: #25272f;
+  --foreground: #f0f2f7; --muted-foreground: #8b8f9c; --accent: #5b84ff; --accent-2: #b4c8ff;
+  --on-accent: #050505; --grid: #5b84ff; --glow: rgba(91,132,255,0.35);
+  --term-bg: #050505; --term-fg: #f0f2f7; --term-dim: #8b8f9c; --term-line: #25272f;
+  --term-a1: #5b84ff; --term-a2: #b4c8ff; color-scheme: dark;
+}
+/* True black + Red */
+:root[data-palette='black-red'] {
+  --background: #050505; --surface: #0e0e0e; --surface-2: #171515; --border: #2a2626;
+  --foreground: #f5f2f0; --muted-foreground: #948b88; --accent: #ff3b30; --accent-2: #ffffff;
+  --on-accent: #ffffff; --grid: #ff3b30; --glow: rgba(255,59,48,0.35);
+  --term-bg: #050505; --term-fg: #f5f2f0; --term-dim: #948b88; --term-line: #2a2626;
+  --term-a1: #ff3b30; --term-a2: #ffffff; color-scheme: dark;
+}
+/* Ink + Lilac & peach */
+:root[data-palette='ink-lilac'] {
+  --background: #0f0e17; --surface: #17151f; --surface-2: #201d2b; --border: #2c2839;
+  --foreground: #eeebf7; --muted-foreground: #9c96ae; --accent: #c4b0ff; --accent-2: #ffb599;
+  --on-accent: #0f0e17; --grid: #c4b0ff; --glow: rgba(196,176,255,0.35);
+  --term-bg: #0f0e17; --term-fg: #eeebf7; --term-dim: #9c96ae; --term-line: #2c2839;
+  --term-a1: #c4b0ff; --term-a2: #ffb599; color-scheme: dark;
+}
+/* Ink + Hot pink & cyan */
+:root[data-palette='ink-pink'] {
+  --background: #0d0c15; --surface: #16141f; --surface-2: #1f1c2b; --border: #2c2839;
+  --foreground: #f1eef8; --muted-foreground: #9a94ad; --accent: #ff4d8d; --accent-2: #7ce7ff;
+  --on-accent: #0d0c15; --grid: #ff4d8d; --glow: rgba(255,77,141,0.35);
+  --term-bg: #0d0c15; --term-fg: #f1eef8; --term-dim: #9a94ad; --term-line: #2c2839;
+  --term-a1: #ff4d8d; --term-a2: #7ce7ff; color-scheme: dark;
+}
+/* Dark grey + Lime */
+:root[data-palette='grey-lime'] {
+  --background: #18181a; --surface: #202023; --surface-2: #29292d; --border: #36363b;
+  --foreground: #f2f2ef; --muted-foreground: #9b9b96; --accent: #c6f432; --accent-2: #e9e9e4;
+  --on-accent: #18181a; --grid: #c6f432; --glow: rgba(198,244,50,0.35);
+  --term-bg: #18181a; --term-fg: #f2f2ef; --term-dim: #9b9b96; --term-line: #36363b;
+  --term-a1: #c6f432; --term-a2: #e9e9e4; color-scheme: dark;
+}
+/* Dark grey + Amber & coral */
+:root[data-palette='grey-amber'] {
+  --background: #18181a; --surface: #202023; --surface-2: #29292d; --border: #36363b;
+  --foreground: #f2f0ec; --muted-foreground: #9d9a94; --accent: #ffb648; --accent-2: #ff7a6b;
+  --on-accent: #18181a; --grid: #ffb648; --glow: rgba(255,182,72,0.35);
+  --term-bg: #18181a; --term-fg: #f2f0ec; --term-dim: #9d9a94; --term-line: #36363b;
+  --term-a1: #ffb648; --term-a2: #ff7a6b; color-scheme: dark;
+}
+/* Dark grey + Cyan & violet */
+:root[data-palette='grey-cyan'] {
+  --background: #17181b; --surface: #1f2024; --surface-2: #28292e; --border: #35363c;
+  --foreground: #eef0f3; --muted-foreground: #989ba3; --accent: #22d3ee; --accent-2: #a78bfa;
+  --on-accent: #17181b; --grid: #22d3ee; --glow: rgba(34,211,238,0.35);
+  --term-bg: #17181b; --term-fg: #eef0f3; --term-dim: #989ba3; --term-line: #35363c;
+  --term-a1: #22d3ee; --term-a2: #a78bfa; color-scheme: dark;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
