@@ -27,9 +27,12 @@ function render() {
     .map((c, i) => `<span class="ch${i === site.first.length - 1 ? ' is-signal' : ''}" aria-hidden="true">${esc(c)}</span>`)
     .join('')
 
-  $('[data-lede]').innerHTML = `${esc(site.role)} who likes building things that <em>feel alive</em>. Currently: ${esc(
-    site.status.toLowerCase(),
-  )}.`
+  const [l1, l2, l3] = site.lede
+  $('[data-lede]').innerHTML = `${esc(l1)}<em>${esc(l2)}</em>${esc(l3)}`
+
+  $('[data-stats]').innerHTML = site.stats
+    .map((s) => `<li><b data-n="${s.n}">${s.n}</b><i>${esc(s.suffix)}</i><span>${esc(s.label)}</span></li>`)
+    .join('')
 
   const words = Object.values(stack).flat()
   for (const t of $$('[data-tape]')) {
@@ -48,8 +51,8 @@ function render() {
       (e, i) => `
     <li class="log__item">
       <button class="log__row" type="button" aria-expanded="false" aria-controls="log-${i}" data-cursor="open">
-        <span class="log__when">${esc(e.from)} — ${esc(e.to)}</span>
-        <span class="log__org">${esc(e.org)}${e.kind === 'edu' ? '<span class="log__kind">EDU</span>' : ''}</span>
+        <span class="log__when">${esc(e.from)}${e.to ? ` — ${esc(e.to)}` : ''}</span>
+        <span class="log__org">${esc(e.org)}${e.kind !== 'work' ? `<span class="log__kind">${e.kind === 'edu' ? 'EDU' : 'AWARD'}</span>` : ''}</span>
         <span class="log__role">${esc(e.role)}${e.where ? `<br>${esc(e.where)}` : ''}</span>
         <span class="log__plus" aria-hidden="true">+</span>
       </button>
@@ -64,11 +67,11 @@ function render() {
         (p, i) => `
     <article class="card" data-cursor="view">
       ${art(i)}
-      <div class="card__top"><span>${esc(p.year)}</span><span>${pad(i + 1)} / ${pad(projects.length)}</span></div>
+      <div class="card__top"><span>${p.year ? esc(p.year) + " · " : ""}${esc(p.context)}</span><span>${pad(i + 1)} / ${pad(projects.length)}</span></div>
       <div>
         <div class="card__idx" aria-hidden="true">${pad(i + 1)}</div>
       </div>
-      <div>
+      <div class="card__body">
         <h3 class="card__name">${esc(p.name)}</h3>
         <p class="card__blurb">${esc(p.blurb)}</p>
         <ul class="card__tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
@@ -202,7 +205,7 @@ function scenes(lenis: Lenis | null) {
     gsap.fromTo(
       t,
       { xPercent: t.dataset.tape === 'rev' ? -50 : 0 },
-      { xPercent: t.dataset.tape === 'rev' ? 0 : -50, duration: 28, ease: 'none', repeat: -1 },
+      { xPercent: t.dataset.tape === 'rev' ? 0 : -50, duration: 70, ease: 'none', repeat: -1 },
     ),
   )
   if (reduced) loops.forEach((l) => l.pause())
@@ -222,6 +225,19 @@ function scenes(lenis: Lenis | null) {
     ease: 'none',
     scrollTrigger: { trigger: '.about__text', start: 'top 80%', end: 'bottom 45%', scrub: true },
   })
+
+  // stats count up once
+  for (const b of $$('[data-n]')) {
+    const o = { v: 0 }
+    const end = Number(b.dataset.n)
+    gsap.to(o, {
+      v: end,
+      duration: 1.6,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: b, start: 'top 90%' },
+      onUpdate: () => (b.textContent = String(Math.round(o.v))),
+    })
+  }
 
   // labels slide in
   for (const l of $$('.label'))
@@ -367,13 +383,13 @@ function terminal(setTheme: (light: boolean) => void) {
         '  clear           wipe the screen',
         '  <span class="d">…and a few hidden ones</span>',
       ].join('\n'),
-    whoami: () => `${esc(site.first)} ${site.last !== 'TODO' ? esc(site.last) : ''}\n${esc(site.role)} · ${esc(site.location)}\n${esc(site.status)}`,
+    whoami: () => `${esc(site.first)} ${esc(site.last)}\n${esc(site.role)} @ ${esc(site.company)} · ${esc(site.location)}`,
     skills: ([g]) => {
       if (g && !stack[g]) return `<span class="h">no group "${esc(g)}".</span> try: ${Object.keys(stack).join(', ')}`
       const groups = g ? [g] : Object.keys(stack)
       return groups.map((k) => `<span class="c">${k.padEnd(10)}</span> ${stack[k].map(esc).join(' · ')}`).join('\n')
     },
-    experience: () => log.map((e) => `<span class="c">${e.from}–${e.to}</span>  ${esc(e.role)} @ ${esc(e.org)}`).join('\n'),
+    experience: () => log.map((e) => `<span class="c">${(e.from + (e.to ? '–' + e.to : '')).padEnd(18)}</span>${esc(e.role)} @ ${esc(e.org)}`).join('\n'),
     projects: () => projects.map((p, i) => `<span class="c">${pad(i + 1)}</span>  ${esc(p.name).padEnd(18)} <span class="d">${p.tags.map(esc).join(', ')}</span>`).join('\n'),
     contact: () =>
       [`email   <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`, ...site.socials.map((s) => `${s.label.toLowerCase().padEnd(8)}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>`)].join('\n'),
