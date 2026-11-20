@@ -27,25 +27,6 @@ export function useCssVar(name: string) {
   return v
 }
 
-export type Theme = 'dark' | 'light'
-
-export function useTheme(): [Theme, () => void] {
-  const [theme, setTheme] = useState<Theme>(() => {
-    try {
-      return (localStorage.getItem('theme') as Theme) || 'dark'
-    } catch {
-      return 'dark'
-    }
-  })
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    try {
-      localStorage.setItem('theme', theme)
-    } catch {}
-  }, [theme])
-  return [theme, () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))]
-}
-
 export function useClock(timeZone: string) {
   const fmt = new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit' })
   const [now, setNow] = useState(() => fmt.format(new Date()))

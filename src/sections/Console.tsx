@@ -11,7 +11,7 @@ const D = ({ children }: { children: ReactNode }) => <span className="text-[var(
 const H = ({ children }: { children: ReactNode }) => <span className="text-accent">{children}</span>
 const pad = (n: number) => String(n).padStart(2, '0')
 
-export function Console({ onInvert }: { onInvert: () => void }) {
+export function Console() {
   const [lines, setLines] = useState<Line[]>([{ id: 0, node: <><C>yash-os 1.0</C> <D>— type "help" and press enter</D></> }])
   const [value, setValue] = useState('')
   const history = useRef<string[]>([])
@@ -27,7 +27,7 @@ export function Console({ onInvert }: { onInvert: () => void }) {
     help: () => (
       <>
         <C>available commands</C>
-        {'\n  whoami          who is this\n  skills [group]  the stack (' + Object.keys(stack).join(', ') + ')\n  experience      where I have been\n  projects        things I built\n  contact         how to reach me\n  resume          open the PDF\n  invert          flip the colours\n  clear           wipe the screen\n  '}
+        {'\n  whoami          who is this\n  skills [group]  the stack (' + Object.keys(stack).join(', ') + ')\n  experience      where I have been\n  projects        things I built\n  contact         how to reach me\n  resume          open the PDF\n  clear           wipe the screen\n  '}
         <D>…and a few hidden ones</D>
       </>
     ),
@@ -65,10 +65,6 @@ export function Console({ onInvert }: { onInvert: () => void }) {
     resume: () => {
       window.open(site.resumeUrl, '_blank', 'noopener')
       return 'opening resume…'
-    },
-    invert: () => {
-      onInvert()
-      return 'colours flipped.'
     },
     clear: () => {
       setLines([])

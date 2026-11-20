@@ -20,17 +20,19 @@ Vendored so far (MIT, see `src/components/ui/MAGICUI_LICENSE.md`): marquee, numb
 
 ## What's in it
 
-- The Oxblood palette: deep wine-red ground with warm orange and gold accents. Three more palettes (lilac, arctic, forest) live in `src/index.css`; change `data-palette` in `index.html` to switch. A variable-width display face (Archivo). The name in the hero stretches and thickens toward your cursor, and breathes on its own on touch screens.
-- Two crossing skill tapes that speed up when you scroll fast.
+- Midnight chrome with liquid glass: a near-black ground with slow silver and blue light drifting behind it. The header, dock, cards, panels and terminal are glass that blurs and bends what's behind it, and the big lettering is clear glass with a bright rim. All of it lives in `src/index.css` and `src/components/Glass.tsx`. A variable-width display face (Archivo). The name in the hero stretches and thickens toward your cursor, and breathes on its own on touch screens.
+- A glass skill tape that scrolls past.
 - A manifesto that lights up word by word as you read.
 - A log of jobs and education that opens like a ledger.
 - Projects on a pinned horizontal rail, each with generated cover art, so there is no stock imagery.
 - A working terminal (`help`, `skills`, `projects`, `sudo hire yash`, …).
-- A floating dock nav that magnifies on hover, and a light theme toggle in it, plus `prefers-reduced-motion` support and keyboard focus styles.
+- A floating glass dock nav that magnifies on hover, plus `prefers-reduced-motion` support and keyboard focus styles.
 
 ## Deploying
 
-The build uses relative paths, so `dist/` works on Vercel, Netlify, Cloudflare Pages or GitHub Pages without changes. On Vercel, import the repo and keep the defaults (framework: Vite).
+Every push to `main` builds the site and publishes it to GitHub Pages through `.github/workflows/deploy.yml`. In the repo settings, under Pages, set Source to "GitHub Actions" once.
+
+The build uses relative paths, so `dist/` also works on Vercel, Netlify or Cloudflare Pages without changes.
 
 ## Claude skills
 

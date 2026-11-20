@@ -2,17 +2,16 @@ import { useEffect, type ReactNode } from 'react'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FileText, Layers, Mail, Moon, ScrollText, SquareTerminal, Sun, UserRound } from 'lucide-react'
+import { FileText, Layers, Mail, ScrollText, SquareTerminal, UserRound } from 'lucide-react'
 import { Dock, DockIcon } from '@/components/ui/dock'
 import { ScrollProgress } from '@/components/ui/scroll-progress'
 import { Hero } from '@/sections/Hero'
 import { About, Contact, Log, Tapes } from '@/sections/Sections'
 import { Work } from '@/sections/Work'
 import { Console } from '@/sections/Console'
-import { PalettePicker } from '@/components/PalettePicker'
 import { ChromeOrbs, GlassDefs, GlassFx } from '@/components/Glass'
 import { site } from '@/data'
-import { useClock, useTheme } from '@/lib/hooks'
+import { useClock } from '@/lib/hooks'
 import { useSyncExternalStore } from 'react'
 
 const mq = '(min-width: 768px)'
@@ -44,7 +43,6 @@ function NavItem({ href, label, children, external }: { href: string; label: str
 }
 
 export default function App() {
-  const [theme, toggle] = useTheme()
   const time = useClock(site.timezone)
   const wide = useWide()
 
@@ -72,7 +70,6 @@ export default function App() {
       <GlassDefs />
       <ChromeOrbs />
       <div className="grain" aria-hidden="true" />
-      {import.meta.env.VITE_PALETTE_PICKER === '1' && <PalettePicker />}
 
       <header className="glass glass-bar eyebrow bg-background/75 border-border/60 fixed inset-x-0 top-0 z-[60] flex items-center justify-between border-b px-4 py-3 backdrop-blur-md md:px-10">
         <GlassFx />
@@ -93,11 +90,6 @@ export default function App() {
           <span className="bg-border mx-1 h-6 w-px" aria-hidden="true" />
           <DockIcon><NavItem href={site.socials[0].url} label="LinkedIn" external><span className="font-display text-[15px] font-black">in</span></NavItem></DockIcon>
           <DockIcon><NavItem href={site.resumeUrl} label="Resume (PDF)" external><FileText className={icon} /></NavItem></DockIcon>
-          <DockIcon>
-            <button type="button" onClick={toggle} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} title="Invert" className="hover:bg-surface-2 flex size-full items-center justify-center rounded-full transition-colors">
-              {theme === 'dark' ? <Sun className={icon} /> : <Moon className={icon} />}
-            </button>
-          </DockIcon>
         </Dock>
       </nav>
 
@@ -107,7 +99,7 @@ export default function App() {
         <About />
         <Log />
         <Work />
-        <Console onInvert={toggle} />
+        <Console />
         <Contact />
       </main>
 
