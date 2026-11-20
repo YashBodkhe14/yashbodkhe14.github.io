@@ -71,7 +71,7 @@ function StretchName({ text }: { text: string }) {
           key={i}
           data-ch
           aria-hidden="true"
-          className={i === text.length - 1 ? 'text-accent inline-block' : 'inline-block'}
+          className={i === text.length - 1 ? 'accent-text inline-block' : 'inline-block'}
           initial={reduced ? false : { y: '110%', opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.15 + i * 0.07, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -126,7 +126,7 @@ export function Hero() {
           <SpinningText className="eyebrow text-foreground absolute inset-0 m-auto" radius={8.2} duration={16}>
             {site.orbit}
           </SpinningText>
-          <span className="bg-accent text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
+          <span className="accent-bg text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
             ↓
           </span>
         </a>

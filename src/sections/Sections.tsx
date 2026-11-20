@@ -39,7 +39,7 @@ export function Tapes() {
   return (
     <div aria-hidden="true" className="relative -my-8 h-[clamp(9rem,18vw,14rem)] overflow-hidden">
       <Band className="bg-surface-2 text-foreground translate-y-[-50%] rotate-3" reverse />
-      <Band className="bg-accent text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
+      <Band className="accent-bg text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
     </div>
   )
 }
@@ -81,7 +81,7 @@ export function About() {
                 <div>
                   <p className="font-display stretch-62 flex items-baseline leading-[0.85] font-black">
                     <NumberTicker value={s.n} className="text-foreground text-[clamp(3.4rem,8vw,7.5rem)] tracking-tight tabular-nums" />
-                    <span className="text-accent text-[clamp(1.6rem,3.6vw,3.2rem)]">{s.suffix}</span>
+                    <span className="accent-text text-[clamp(1.6rem,3.6vw,3.2rem)]">{s.suffix}</span>
                   </p>
                   <p className="eyebrow text-muted-foreground mt-3 max-w-[18ch]">{s.label}</p>
                 </div>
