@@ -5,116 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yash Bodkhe</title>
     <meta name="description" content="Yash Bodkhe, SDE 1 at Bajaj Finserv. Platform, Kubernetes and payments engineering in Pune." />
-    <meta name="theme-color" content="#1631d6" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0a1214" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script>
+      try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch (e) {}
+    </script>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
-
-    <!-- boot screen -->
-    <div class="boot" aria-hidden="true">
-      <div class="boot__count"><span data-count>000</span></div>
-      <div class="boot__lines">
-        <p>// signal acquired</p>
-        <p>// loading yash.exe</p>
-      </div>
-    </div>
-
-    <div class="grain" aria-hidden="true"></div>
-    <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
-    <div class="progress" aria-hidden="true"></div>
-
-    <header class="bar">
-      <a href="#top" class="bar__mark" aria-label="Back to top">Y/</a>
-      <nav class="bar__nav" aria-label="Sections">
-        <a href="#about"><i>00</i>About</a>
-        <a href="#log"><i>01</i>Log</a>
-        <a href="#work"><i>02</i>Work</a>
-        <a href="#console"><i>03</i>Console</a>
-        <a href="#contact"><i>04</i>Contact</a>
-      </nav>
-      <div class="bar__right">
-        <span class="bar__clock" data-clock>--:--:--</span>
-        <button class="bar__invert" type="button" data-invert aria-pressed="false">Invert</button>
-      </div>
-    </header>
-
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero" id="top">
-        <div class="hero__meta mono">
-          <span data-role></span>
-          <span data-location></span>
-          <span class="hero__status"><b class="dot"></b><span data-status></span></span>
-        </div>
-        <h1 class="hero__name" data-name aria-label=""></h1>
-        <div class="hero__foot">
-          <p class="hero__lede" data-lede></p>
-          <a class="hero__scroll" href="#about" aria-label="Scroll to about" data-cursor="go">
-            <svg class="hero__orbit" viewBox="0 0 200 200" aria-hidden="true">
-              <defs><path id="orbit" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
-              <text textLength="488" lengthAdjust="spacing"><textPath href="#orbit">PLATFORM ✺ PAYMENTS ✺ KUBERNETES ✺ SCROLL ✺ </textPath></text>
-            </svg>
-            <span class="hero__arrow" aria-hidden="true">↓</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- TICKER -->
-      <div class="tape" aria-hidden="true">
-        <div class="tape__band tape__band--a"><div class="tape__track" data-tape></div></div>
-        <div class="tape__band tape__band--b"><div class="tape__track" data-tape="rev"></div></div>
-      </div>
-
-      <!-- ABOUT -->
-      <section class="about" id="about">
-        <h2 class="label mono"><i>00</i> About</h2>
-        <p class="about__text" data-manifesto></p>
-        <ul class="stats" data-stats></ul>
-      </section>
-
-      <!-- LOG -->
-      <section class="log" id="log">
-        <h2 class="label mono"><i>01</i> Log</h2>
-        <ol class="log__list" data-log></ol>
-      </section>
-
-      <!-- WORK -->
-      <section class="work" id="work">
-        <div class="work__pin">
-          <h2 class="label mono"><i>02</i> Selected work</h2>
-          <div class="work__rail" data-work></div>
-        </div>
-      </section>
-
-      <!-- CONSOLE -->
-      <section class="console" id="console">
-        <h2 class="label mono"><i>03</i> Console</h2>
-        <p class="console__hint">The skills section is a terminal. Type <kbd>help</kbd>.</p>
-        <div class="term" data-term>
-          <div class="term__head mono"><span></span><span></span><span></span><em>yash@portfolio: ~</em></div>
-          <div class="term__out mono" data-term-out role="log" aria-live="polite"></div>
-          <form class="term__line mono" data-term-form>
-            <label for="term-in"><b>yash@portfolio</b>:~$</label>
-            <input id="term-in" autocomplete="off" spellcheck="false" autocapitalize="off" data-term-in />
-          </form>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="contact" id="contact">
-        <h2 class="label mono"><i>04</i> Contact</h2>
-        <p class="contact__pre">Got something worth building?</p>
-        <a class="contact__mail" data-mail></a>
-        <ul class="contact__links mono" data-socials></ul>
-      </section>
-    </main>
-
-    <footer class="foot mono">
-      <span>© <span data-year></span> Yash Bodkhe. Built by hand, no templates.</span>
-      <a href="#top">Back to top ↑</a>
-    </footer>
-
-    <script type="module" src="/src/main.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

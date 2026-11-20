@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/jetbrains-mono';
+
+@custom-variant dark (&:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *));
+
+/*
+  Palette: "night shift". A deep teal control-room ground, with the two colours
+  an on-call engineer actually watches for: amber (attention) and mint (healthy).
+*/
+:root {
+  --background: #0a1214;
+  --surface: #0f1c1f;
+  --surface-2: #142629;
+  --border: #1f3438;
+  --foreground: #e7f0ed;
+  --muted-foreground: #8ba5a0;
+  --amber: #ffb648;
+  --mint: #5cf2c4;
+  --coral: #ff7a66;
+  --on-accent: #0a1214;
+  --grid: #5cf2c4;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --background: #eef3f0;
+  --surface: #ffffff;
+  --surface-2: #e3ebe7;
+  --border: #c9d8d2;
+  --foreground: #0a1214;
+  --muted-foreground: #4c625d;
+  --amber: #b86400;
+  --mint: #0a8a66;
+  --coral: #c8432e;
+  --on-accent: #ffffff;
+  --grid: #0a8a66;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--surface-2);
+  --color-amber: var(--amber);
+  --color-mint: var(--mint);
+  --color-coral: var(--coral);
+  --color-on-accent: var(--on-accent);
+  --font-display: 'Archivo Variable', 'Arial Narrow', sans-serif;
+  --font-sans: 'Archivo Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--background);
+    overflow-x: hidden;
+    transition: background-color 0.5s, color 0.5s;
+  }
+  ::selection { background: var(--amber); color: var(--on-accent); }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  html.lenis { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .stretch-62 { font-stretch: 62%; }
+  .stretch-75 { font-stretch: 75%; }
+  .stretch-90 { font-stretch: 90%; }
+  .text-outline {
+    -webkit-text-stroke: 1.5px var(--foreground);
+    color: transparent;
+  }
+  .grain {
+    position: fixed;
+    inset: -50%;
+    z-index: 80;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 0.6s steps(4) infinite;
+  }
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); }
+  75% { transform: translate(-1%, 3%); }
+}
+@keyframes ping-soft {
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

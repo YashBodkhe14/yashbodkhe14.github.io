@@ -30,6 +30,7 @@ export const site = {
   location: 'Pune, India',
   timezone: 'Asia/Kolkata',
   status: 'Building at Bajaj Finserv',
+  orbit: 'PLATFORM ✺ PAYMENTS ✺ KUBERNETES ✺ SCROLL ✺ ',
   email: 'yashbodkhe10@gmail.com',
   resumeUrl: './resume.pdf',
   socials: [{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/yashbodkhe25/' }],
