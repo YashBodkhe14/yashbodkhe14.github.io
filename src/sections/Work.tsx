@@ -111,11 +111,11 @@ export function Work() {
                   {pad(i + 1)}
                 </div>
                 <div className="glass-panel relative -mx-6 -mb-6 bg-gradient-to-b from-transparent to-[var(--surface)] to-40% px-6 pt-12 pb-6">
-                  <h3 className="font-display stretch-62 mb-2 text-[clamp(2rem,3.6vw,3.2rem)] leading-[0.9] font-extrabold uppercase">{p.name}</h3>
+                  <h3 className="glass-text-soft font-display stretch-62 mb-2 text-[clamp(2rem,3.6vw,3.2rem)] leading-[0.9] font-extrabold uppercase">{p.name}</h3>
                   <p className="stretch-90 mb-4 max-w-[36ch] leading-snug">{p.blurb}</p>
                   <ul className="flex flex-wrap gap-1.5">
                     {p.tags.map((t) => (
-                      <li key={t} className="eyebrow border-foreground/40 bg-surface rounded-full border px-2.5 py-1 text-[0.62rem]">
+                      <li key={t} className="pill eyebrow border-foreground/40 bg-surface rounded-full border px-2.5 py-1 text-[0.62rem]">
                         {t}
                       </li>
                     ))}
@@ -125,8 +125,8 @@ export function Work() {
               {i === 0 && <BorderBeam size={140} duration={9} colorFrom="var(--accent)" colorTo="var(--accent-2)" borderWidth={1.5} />}
             </MagicCard>
           ))}
-          <div className="bg-accent2 text-on-accent flex min-h-[260px] items-center rounded-3xl p-8 md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]">
-            <p className="font-display stretch-62 text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.9] font-black uppercase">
+          <div className="more-card bg-accent2 text-on-accent flex min-h-[260px] items-center rounded-3xl p-8 md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]">
+            <p className="glass-text font-display stretch-62 text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.9] font-black uppercase">
               More in
               <br />
               the console

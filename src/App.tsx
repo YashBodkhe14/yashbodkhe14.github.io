@@ -68,7 +68,7 @@ export default function App() {
       <a href="#main" className="bg-accent text-on-accent fixed -top-16 left-3 z-[100] px-3 py-2 font-mono focus:top-3">
         Skip to content
       </a>
-      <ScrollProgress className="top-0 z-[70] h-[3px] bg-gradient-to-r from-[var(--accent-2)] to-[var(--accent)]" />
+      <ScrollProgress className="top-0 z-[70] h-[3px] bg-gradient-to-r from-[var(--accent-2)] via-[var(--accent-2)] to-[var(--accent)]" />
       <GlassDefs />
       <ChromeOrbs />
       <div className="grain" aria-hidden="true" />

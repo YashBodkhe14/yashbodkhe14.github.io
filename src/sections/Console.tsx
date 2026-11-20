@@ -155,8 +155,8 @@ export function Console({ onInvert }: { onInvert: () => void }) {
   return (
     <section id="console" className="px-4 py-24 md:px-10 md:py-40">
       <Label n="03">Console</Label>
-      <p className="font-display stretch-75 mb-8 max-w-[24ch] text-[clamp(1.4rem,3vw,2.4rem)] font-bold">
-        The skills section is a terminal. Type <kbd className="bg-accent text-on-accent px-1.5 font-mono text-[0.8em]">help</kbd>.
+      <p className="glass-text-soft font-display stretch-75 mb-8 max-w-[24ch] text-[clamp(1.4rem,3vw,2.4rem)] font-bold">
+        The skills section is a terminal. Type <kbd className="kbd-chip bg-accent text-on-accent px-1.5 font-mono text-[0.8em]">help</kbd>.
       </p>
       <div
         ref={box}

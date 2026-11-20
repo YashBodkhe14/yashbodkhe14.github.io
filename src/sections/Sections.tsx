@@ -13,7 +13,7 @@ export function Label({ n, children }: { n: string; children: ReactNode }) {
   return (
     <BlurFade inView direction="right" offset={30}>
       <h2 className="eyebrow text-muted-foreground mb-10 flex items-center gap-3 font-normal md:mb-16">
-        <i className="bg-foreground text-background px-1.5 py-0.5 not-italic">{n}</i>
+        <i className="label-chip bg-foreground text-background px-1.5 py-0.5 not-italic">{n}</i>
         {children}
         <span className="bg-border h-px flex-1" />
       </h2>
@@ -38,9 +38,9 @@ export function Tapes() {
     </div>
   )
   return (
-    <div aria-hidden="true" className="relative -my-8 h-[clamp(9rem,18vw,14rem)] overflow-hidden">
-      <Band className="bg-surface-2 text-foreground translate-y-[-50%] rotate-3" reverse />
-      <Band className="accent-bg text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
+    <div aria-hidden="true" className="tapes relative -my-8 h-[clamp(9rem,18vw,14rem)] overflow-hidden">
+      <Band className="tape-back bg-surface-2 text-foreground translate-y-[-50%] rotate-3" reverse />
+      <Band className="tape-front accent-bg text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
     </div>
   )
 }
@@ -59,7 +59,7 @@ export function About() {
   return (
     <section id="about" className="px-4 py-24 md:px-10 md:py-40">
       <Label n="00">About</Label>
-      <p ref={ref} className="font-display stretch-75 max-w-[22ch] text-[clamp(1.9rem,5.4vw,5.2rem)] leading-[1.02] font-bold text-balance">
+      <p ref={ref} className="glass-text-soft font-display stretch-75 max-w-[22ch] text-[clamp(1.9rem,5.4vw,5.2rem)] leading-[1.02] font-bold text-balance">
         {words.map((w, i) => (
           <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>
             {w}
@@ -82,7 +82,7 @@ export function About() {
                 <span className="eyebrow text-muted-foreground">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <p className="font-display stretch-62 flex items-baseline leading-[0.85] font-black">
-                    <NumberTicker value={s.n} className="text-foreground text-[clamp(3.4rem,8vw,7.5rem)] tracking-tight tabular-nums" />
+                    <NumberTicker value={s.n} className="glass-text text-foreground text-[clamp(3.4rem,8vw,7.5rem)] tracking-tight tabular-nums" />
                     <span className="accent-text text-[clamp(1.6rem,3.6vw,3.2rem)]">{s.suffix}</span>
                   </p>
                   <p className="eyebrow text-muted-foreground mt-3 max-w-[18ch]">{s.label}</p>
@@ -109,19 +109,19 @@ export function Log() {
           return (
             <BlurFade key={i} inView delay={i * 0.06} className="border-border group relative overflow-hidden border-b">
               <div role="listitem">
-                <span className="bg-accent pointer-events-none absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:origin-top group-hover:scale-y-100" />
+                <span className="log-hover bg-accent pointer-events-none absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:origin-top group-hover:scale-y-100" />
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={`log-${i}`}
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="group-hover:text-on-accent relative z-10 grid w-full grid-cols-[1fr_2rem] items-center gap-x-6 gap-y-1 px-2 py-6 text-left transition-[color,padding] duration-500 group-hover:pl-6 md:grid-cols-[11rem_1fr_auto_2.5rem]"
+                  className="log-row group-hover:text-on-accent relative z-10 grid w-full grid-cols-[1fr_2rem] items-center gap-x-6 gap-y-1 px-2 py-6 text-left transition-[color,padding] duration-500 group-hover:pl-6 md:grid-cols-[11rem_1fr_auto_2.5rem]"
                 >
                   <span className="eyebrow">
                     {e.from}
                     {e.to && ` — ${e.to}`}
                   </span>
-                  <span className="font-display stretch-75 col-start-1 text-[clamp(1.6rem,4.4vw,3.8rem)] leading-none font-extrabold uppercase md:col-start-auto">
+                  <span className="glass-text-soft font-display stretch-75 col-start-1 text-[clamp(1.6rem,4.4vw,3.8rem)] leading-none font-extrabold uppercase md:col-start-auto">
                     {e.org}
                     {e.kind !== 'work' && (
                       <span className="eyebrow ml-3 inline-block rounded-full border border-current px-2 py-0.5 align-middle text-[0.6rem]">
@@ -147,7 +147,7 @@ export function Log() {
                 </button>
                 <div
                   id={`log-${i}`}
-                  className={cn('group-hover:text-on-accent relative z-10 grid transition-[grid-template-rows] duration-500', isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}
+                  className={cn('log-row group-hover:text-on-accent relative z-10 grid transition-[grid-template-rows] duration-500', isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}
                 >
                   <ul className="stretch-90 max-w-[70rem] overflow-hidden px-2 text-[1.05rem] leading-relaxed md:pl-[13rem]">
                     {e.points.map((p) => (
@@ -178,7 +178,7 @@ export function Contact() {
           as="span"
           animateOnHover
           startOnView
-          className="font-display stretch-62 py-0 text-[clamp(2.2rem,8.5vw,9rem)] leading-[0.9] font-black uppercase [&_span]:[font-family:inherit]"
+          className="glass-text-soft font-display stretch-62 py-0 text-[clamp(2.2rem,8.5vw,9rem)] leading-[0.9] font-black uppercase [&_span]:[font-family:inherit]"
         >
           {site.email}
         </HyperText>
@@ -190,7 +190,7 @@ export function Contact() {
               href={s.url}
               target="_blank"
               rel="noopener"
-              className="border-foreground hover:bg-foreground hover:text-background inline-block rounded-full border px-5 py-2.5 transition-colors"
+              className="pill border-foreground hover:bg-foreground hover:text-background inline-block rounded-full border px-5 py-2.5 transition-colors"
             >
               {s.label} ↗
             </a>

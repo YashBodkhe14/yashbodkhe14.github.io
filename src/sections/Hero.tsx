@@ -65,7 +65,7 @@ function StretchName({ text }: { text: string }) {
     <h1
       ref={ref}
       aria-label={`${site.first} ${site.last}`}
-      className="font-display flex select-none justify-center whitespace-nowrap text-[40vw] leading-[0.78] font-extrabold tracking-[-0.02em] md:text-[min(34vw,40rem)]"
+      className="glass-text font-display flex select-none justify-center whitespace-nowrap text-[40vw] leading-[0.78] font-extrabold tracking-[-0.02em] md:text-[min(34vw,40rem)]"
     >
       {[...text].map((c, i) => (
         <motion.span
@@ -90,7 +90,7 @@ export function Hero() {
     <section id="top" className="relative isolate grid min-h-svh grid-rows-[auto_1fr_auto] overflow-hidden px-4 pt-24 pb-28 md:px-10 md:pb-10">
       <FlickeringGrid
         key={grid}
-        className="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"
+        className="hero-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"
         squareSize={4}
         gridGap={7}
         color={grid || '#888'}
@@ -128,7 +128,7 @@ export function Hero() {
           <SpinningText className="eyebrow text-foreground absolute inset-0 m-auto" radius={8.2} duration={16}>
             {site.orbit}
           </SpinningText>
-          <span className="accent-bg text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
+          <span className="scroll-knob accent-bg text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
             ↓
           </span>
         </a>
