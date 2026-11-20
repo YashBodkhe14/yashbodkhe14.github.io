@@ -39,7 +39,7 @@ export function Tapes() {
   return (
     <div aria-hidden="true" className="relative -my-8 h-[clamp(9rem,18vw,14rem)] overflow-hidden">
       <Band className="bg-surface-2 text-foreground translate-y-[-50%] rotate-3" reverse />
-      <Band className="bg-amber text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
+      <Band className="bg-accent text-on-accent z-10 translate-y-[-50%] -rotate-[4deg]" />
     </div>
   )
 }
@@ -71,8 +71,8 @@ export function About() {
           <BlurFade key={s.label} inView delay={i * 0.08}>
             <MagicCard
               className="h-full rounded-2xl"
-              gradientFrom="var(--amber)"
-              gradientTo="var(--mint)"
+              gradientFrom="var(--accent)"
+              gradientTo="var(--accent-2)"
               gradientColor="var(--surface-2)"
               gradientOpacity={0.9}
             >
@@ -81,7 +81,7 @@ export function About() {
                 <div>
                   <p className="font-display stretch-62 flex items-baseline leading-[0.85] font-black">
                     <NumberTicker value={s.n} className="text-foreground text-[clamp(3.4rem,8vw,7.5rem)] tracking-tight tabular-nums" />
-                    <span className="text-amber text-[clamp(1.6rem,3.6vw,3.2rem)]">{s.suffix}</span>
+                    <span className="text-accent text-[clamp(1.6rem,3.6vw,3.2rem)]">{s.suffix}</span>
                   </p>
                   <p className="eyebrow text-muted-foreground mt-3 max-w-[18ch]">{s.label}</p>
                 </div>
@@ -107,7 +107,7 @@ export function Log() {
           return (
             <BlurFade key={i} inView delay={i * 0.06} className="border-border group relative overflow-hidden border-b">
               <div role="listitem">
-                <span className="bg-amber pointer-events-none absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:origin-top group-hover:scale-y-100" />
+                <span className="bg-accent pointer-events-none absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:origin-top group-hover:scale-y-100" />
                 <button
                   type="button"
                   aria-expanded={isOpen}
@@ -171,7 +171,7 @@ export function Contact() {
     <section id="contact" className="flex min-h-[85vh] flex-col px-4 py-24 md:px-10 md:py-40">
       <Label n="04">Contact</Label>
       <p className="eyebrow text-muted-foreground">Got a platform that needs taming?</p>
-      <a href={`mailto:${site.email}`} className="hover:text-amber my-6 block break-all transition-colors md:mb-12">
+      <a href={`mailto:${site.email}`} className="hover:text-accent my-6 block break-all transition-colors md:mb-12">
         <HyperText
           as="span"
           animateOnHover

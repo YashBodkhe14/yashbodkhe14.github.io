@@ -5,9 +5,9 @@ import { Label } from './Sections'
 
 type Line = { id: number; node: ReactNode }
 
-const C = ({ children }: { children: ReactNode }) => <span className="text-mint">{children}</span>
-const D = ({ children }: { children: ReactNode }) => <span className="text-[#7f9893]">{children}</span>
-const H = ({ children }: { children: ReactNode }) => <span className="text-amber">{children}</span>
+const C = ({ children }: { children: ReactNode }) => <span className="text-accent2">{children}</span>
+const D = ({ children }: { children: ReactNode }) => <span className="text-[var(--term-dim)]">{children}</span>
+const H = ({ children }: { children: ReactNode }) => <span className="text-accent">{children}</span>
 const pad = (n: number) => String(n).padStart(2, '0')
 
 export function Console({ onInvert }: { onInvert: () => void }) {
@@ -155,26 +155,26 @@ export function Console({ onInvert }: { onInvert: () => void }) {
     <section id="console" className="px-4 py-24 md:px-10 md:py-40">
       <Label n="03">Console</Label>
       <p className="font-display stretch-75 mb-8 max-w-[24ch] text-[clamp(1.4rem,3vw,2.4rem)] font-bold">
-        The skills section is a terminal. Type <kbd className="bg-amber text-on-accent px-1.5 font-mono text-[0.8em]">help</kbd>.
+        The skills section is a terminal. Type <kbd className="bg-accent text-on-accent px-1.5 font-mono text-[0.8em]">help</kbd>.
       </p>
       <div
         ref={box}
         onClick={() => input.current?.focus({ preventScroll: true })}
-        className="relative max-w-[62rem] overflow-hidden rounded-2xl border border-[#1f3438] bg-[#071012] text-[#e7f0ed] shadow-[0_40px_120px_-40px_rgba(92,242,196,0.35)]"
+        className="relative max-w-[62rem] overflow-hidden rounded-2xl border border-[var(--term-line)] bg-[var(--term-bg)] text-[var(--term-fg)] shadow-[0_40px_120px_-40px_var(--glow)]"
       >
-        <div className="flex items-center gap-1.5 border-b border-[#1f3438] px-4 py-3 font-mono text-xs">
-          <span className="size-3 rounded-full bg-[#ff7a66]" />
-          <span className="size-3 rounded-full bg-[#ffb648]" />
-          <span className="size-3 rounded-full bg-[#5cf2c4]" />
-          <em className="ml-auto text-[#7f9893] not-italic">yash@bajaj-aks: ~</em>
+        <div className="flex items-center gap-1.5 border-b border-[var(--term-line)] px-4 py-3 font-mono text-xs">
+          <span className="size-3 rounded-full bg-[var(--term-dim)]" />
+          <span className="size-3 rounded-full bg-[var(--term-a1)]" />
+          <span className="size-3 rounded-full bg-[var(--term-a2)]" />
+          <em className="ml-auto text-[var(--term-dim)] not-italic">yash@bajaj-aks: ~</em>
         </div>
-        <div ref={out} role="log" aria-live="polite" className="h-[340px] overflow-y-auto p-4 font-mono text-[0.85rem] leading-relaxed whitespace-pre-wrap [&_.text-mint]:text-[#5cf2c4] [&_.text-amber]:text-[#ffb648]">
+        <div ref={out} role="log" aria-live="polite" className="h-[340px] overflow-y-auto p-4 font-mono text-[0.85rem] leading-relaxed whitespace-pre-wrap [&_.text-accent2]:text-[var(--term-a2)] [&_.text-accent]:text-[var(--term-a1)]">
           {lines.map((l) => (
             <div key={l.id}>{l.node}</div>
           ))}
         </div>
         <form onSubmit={submit} className="flex gap-2 px-4 pt-2 pb-4 font-mono text-[0.85rem]">
-          <label htmlFor="term-in" className="text-[#5cf2c4]">
+          <label htmlFor="term-in" className="text-[var(--term-a2)]">
             yash@portfolio:~$
           </label>
           <input
@@ -186,10 +186,10 @@ export function Console({ onInvert }: { onInvert: () => void }) {
             autoComplete="off"
             spellCheck={false}
             autoCapitalize="off"
-            className="flex-1 bg-transparent caret-[#5cf2c4] outline-none"
+            className="flex-1 bg-transparent caret-[var(--term-a2)] outline-none"
           />
         </form>
-        <BorderBeam size={220} duration={12} colorFrom="#ffb648" colorTo="#5cf2c4" />
+        <BorderBeam size={220} duration={12} colorFrom="var(--accent)" colorTo="var(--accent-2)" />
       </div>
     </section>
   )

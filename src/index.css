@@ -4,37 +4,169 @@
 
 @custom-variant dark (&:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *));
 
-/*
-  Palette: "night shift". A deep teal control-room ground, with the two colours
-  an on-call engineer actually watches for: amber (attention) and mint (healthy).
-*/
-:root {
-  --background: #0a1214;
-  --surface: #0f1c1f;
-  --surface-2: #142629;
-  --border: #1f3438;
-  --foreground: #e7f0ed;
-  --muted-foreground: #8ba5a0;
-  --amber: #ffb648;
-  --mint: #5cf2c4;
-  --coral: #ff7a66;
-  --on-accent: #0a1214;
-  --grid: #5cf2c4;
+/* Palettes. Pick one with data-palette on <html>; data-theme flips it light/dark. */
+/* Ink & Lilac */
+:root[data-palette='lilac'], :root:not([data-palette]) {
+  --background: #0f0e17;
+  --surface: #17151f;
+  --surface-2: #201d2b;
+  --border: #2c2839;
+  --foreground: #eeebf7;
+  --muted-foreground: #9c96ae;
+  --accent: #c4b0ff;
+  --accent-2: #ffb599;
+  --on-accent: #0f0e17;
+  --grid: #c4b0ff;
+  --glow: rgba(196,176,255,0.35);
+  --term-bg: #0f0e17;
+  --term-fg: #eeebf7;
+  --term-dim: #9c96ae;
+  --term-line: #2c2839;
+  --term-a1: #c4b0ff;
+  --term-a2: #ffb599;
   color-scheme: dark;
 }
-
-:root[data-theme='light'] {
-  --background: #eef3f0;
+:root[data-palette='lilac'][data-theme='light'], :root:not([data-palette])[data-theme='light'] {
+  --background: #f5f3fb;
   --surface: #ffffff;
-  --surface-2: #e3ebe7;
-  --border: #c9d8d2;
-  --foreground: #0a1214;
-  --muted-foreground: #4c625d;
-  --amber: #b86400;
-  --mint: #0a8a66;
-  --coral: #c8432e;
+  --surface-2: #ebe7f6;
+  --border: #d9d3ea;
+  --foreground: #15121f;
+  --muted-foreground: #5d5770;
+  --accent: #6a4ae0;
+  --accent-2: #c94f24;
   --on-accent: #ffffff;
-  --grid: #0a8a66;
+  --grid: #6a4ae0;
+  --glow: rgba(106,74,224,0.35);
+  --term-bg: #0f0e17;
+  --term-fg: #eeebf7;
+  --term-dim: #9c96ae;
+  --term-line: #2c2839;
+  --term-a1: #c4b0ff;
+  --term-a2: #ffb599;
+  color-scheme: light;
+}
+/* Arctic */
+:root[data-palette='arctic'] {
+  --background: #0b1020;
+  --surface: #111830;
+  --surface-2: #18213d;
+  --border: #243055;
+  --foreground: #e8edf8;
+  --muted-foreground: #8d98b3;
+  --accent: #7090ff;
+  --accent-2: #ff7a70;
+  --on-accent: #0b1020;
+  --grid: #7090ff;
+  --glow: rgba(112,144,255,0.35);
+  --term-bg: #0b1020;
+  --term-fg: #e8edf8;
+  --term-dim: #8d98b3;
+  --term-line: #243055;
+  --term-a1: #7090ff;
+  --term-a2: #ff7a70;
+  color-scheme: dark;
+}
+:root[data-palette='arctic'][data-theme='light'] {
+  --background: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e7ebf2;
+  --border: #d3dae4;
+  --foreground: #0d1321;
+  --muted-foreground: #556074;
+  --accent: #2f5bff;
+  --accent-2: #e5483c;
+  --on-accent: #ffffff;
+  --grid: #2f5bff;
+  --glow: rgba(47,91,255,0.35);
+  --term-bg: #0b1020;
+  --term-fg: #e8edf8;
+  --term-dim: #8d98b3;
+  --term-line: #243055;
+  --term-a1: #7090ff;
+  --term-a2: #ff7a70;
+  color-scheme: light;
+}
+/* Oxblood */
+:root[data-palette='oxblood'] {
+  --background: #1a0c10;
+  --surface: #24121a;
+  --surface-2: #2f1820;
+  --border: #43232c;
+  --foreground: #f7e9e3;
+  --muted-foreground: #b8968f;
+  --accent: #ff8a5b;
+  --accent-2: #f2c14e;
+  --on-accent: #1a0c10;
+  --grid: #ff8a5b;
+  --glow: rgba(255,138,91,0.35);
+  --term-bg: #1a0c10;
+  --term-fg: #f7e9e3;
+  --term-dim: #b8968f;
+  --term-line: #43232c;
+  --term-a1: #ff8a5b;
+  --term-a2: #f2c14e;
+  color-scheme: dark;
+}
+:root[data-palette='oxblood'][data-theme='light'] {
+  --background: #faf1ec;
+  --surface: #ffffff;
+  --surface-2: #f2e2da;
+  --border: #e5cfc5;
+  --foreground: #2a0f15;
+  --muted-foreground: #7a5a55;
+  --accent: #c2410c;
+  --accent-2: #9a5b00;
+  --on-accent: #ffffff;
+  --grid: #c2410c;
+  --glow: rgba(194,65,12,0.35);
+  --term-bg: #1a0c10;
+  --term-fg: #f7e9e3;
+  --term-dim: #b8968f;
+  --term-line: #43232c;
+  --term-a1: #ff8a5b;
+  --term-a2: #f2c14e;
+  color-scheme: light;
+}
+/* Forest & Gold */
+:root[data-palette='forest'] {
+  --background: #0e1611;
+  --surface: #142019;
+  --surface-2: #1b2a21;
+  --border: #283b2f;
+  --foreground: #edf3e6;
+  --muted-foreground: #93a597;
+  --accent: #e9c46a;
+  --accent-2: #8fd3a8;
+  --on-accent: #0e1611;
+  --grid: #e9c46a;
+  --glow: rgba(233,196,106,0.35);
+  --term-bg: #0e1611;
+  --term-fg: #edf3e6;
+  --term-dim: #93a597;
+  --term-line: #283b2f;
+  --term-a1: #e9c46a;
+  --term-a2: #8fd3a8;
+  color-scheme: dark;
+}
+:root[data-palette='forest'][data-theme='light'] {
+  --background: #f2f4ec;
+  --surface: #ffffff;
+  --surface-2: #e6eadb;
+  --border: #ccd5c0;
+  --foreground: #13201a;
+  --muted-foreground: #56655b;
+  --accent: #9a6a00;
+  --accent-2: #2f7d55;
+  --on-accent: #ffffff;
+  --grid: #9a6a00;
+  --glow: rgba(154,106,0,0.35);
+  --term-bg: #0e1611;
+  --term-fg: #edf3e6;
+  --term-dim: #93a597;
+  --term-line: #283b2f;
+  --term-a1: #e9c46a;
+  --term-a2: #8fd3a8;
   color-scheme: light;
 }
 
@@ -46,9 +178,8 @@
   --color-border: var(--border);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--surface-2);
-  --color-amber: var(--amber);
-  --color-mint: var(--mint);
-  --color-coral: var(--coral);
+  --color-accent: var(--accent);
+  --color-accent2: var(--accent-2);
   --color-on-accent: var(--on-accent);
   --font-display: 'Archivo Variable', 'Arial Narrow', sans-serif;
   --font-sans: 'Archivo Variable', system-ui, sans-serif;
@@ -79,8 +210,8 @@
     overflow-x: hidden;
     transition: background-color 0.5s, color 0.5s;
   }
-  ::selection { background: var(--amber); color: var(--on-accent); }
-  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   html.lenis { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
 }

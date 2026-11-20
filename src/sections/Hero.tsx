@@ -71,7 +71,7 @@ function StretchName({ text }: { text: string }) {
           key={i}
           data-ch
           aria-hidden="true"
-          className={i === text.length - 1 ? 'text-amber inline-block' : 'inline-block'}
+          className={i === text.length - 1 ? 'text-accent inline-block' : 'inline-block'}
           initial={reduced ? false : { y: '110%', opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.15 + i * 0.07, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -92,7 +92,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"
         squareSize={4}
         gridGap={7}
-        color={grid || '#5cf2c4'}
+        color={grid || '#888'}
         maxOpacity={0.35}
         flickerChance={0.12}
       />
@@ -103,7 +103,7 @@ export function Hero() {
         </HyperText>
         <span>{site.location}</span>
         <span className="border-border bg-surface/70 text-foreground inline-flex items-center gap-2 rounded-full border px-3 py-1 backdrop-blur">
-          <b className="bg-mint size-2 rounded-full shadow-[0_0_0_0_var(--mint)] [animation:ping-soft_1.8s_infinite]" />
+          <b className="bg-accent2 size-2 rounded-full shadow-[0_0_0_0_var(--accent-2)] [animation:ping-soft_1.8s_infinite]" />
           All systems operational · {site.company}
         </span>
       </div>
@@ -115,7 +115,7 @@ export function Hero() {
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <p className="stretch-75 max-w-[34ch] text-[clamp(1.15rem,2vw,1.6rem)] leading-[1.15] font-medium">
           {site.lede[0]}
-          <em className="text-amber not-italic">{site.lede[1]}</em>
+          <em className="text-accent not-italic">{site.lede[1]}</em>
           {site.lede[2]}
         </p>
         <a
@@ -126,7 +126,7 @@ export function Hero() {
           <SpinningText className="eyebrow text-foreground absolute inset-0 m-auto" radius={8.2} duration={16}>
             {site.orbit}
           </SpinningText>
-          <span className="bg-amber text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
+          <span className="bg-accent text-on-accent grid size-[42%] place-items-center rounded-full text-2xl transition-transform group-hover:translate-y-1.5">
             ↓
           </span>
         </a>

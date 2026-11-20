@@ -9,6 +9,7 @@ import { Hero } from '@/sections/Hero'
 import { About, Contact, Log, Tapes } from '@/sections/Sections'
 import { Work } from '@/sections/Work'
 import { Console } from '@/sections/Console'
+import { PalettePicker } from '@/components/PalettePicker'
 import { site } from '@/data'
 import { useClock, useTheme } from '@/lib/hooks'
 import { useSyncExternalStore } from 'react'
@@ -63,15 +64,16 @@ export default function App() {
   const icon = 'size-[18px]'
   return (
     <>
-      <a href="#main" className="bg-amber text-on-accent fixed -top-16 left-3 z-[100] px-3 py-2 font-mono focus:top-3">
+      <a href="#main" className="bg-accent text-on-accent fixed -top-16 left-3 z-[100] px-3 py-2 font-mono focus:top-3">
         Skip to content
       </a>
-      <ScrollProgress className="top-0 z-[70] h-[3px] bg-gradient-to-r from-[var(--mint)] to-[var(--amber)]" />
+      <ScrollProgress className="top-0 z-[70] h-[3px] bg-gradient-to-r from-[var(--accent-2)] to-[var(--accent)]" />
       <div className="grain" aria-hidden="true" />
+      {import.meta.env.VITE_PALETTE_PICKER === '1' && <PalettePicker />}
 
       <header className="eyebrow bg-background/75 border-border/60 fixed inset-x-0 top-0 z-[60] flex items-center justify-between border-b px-4 py-3 backdrop-blur-md md:px-10">
         <a href="#top" onClick={go('#top')} aria-label="Back to top" className="font-display stretch-62 text-2xl font-black tracking-tight normal-case">
-          Y<span className="text-amber">B</span>
+          Y<span className="text-accent">B</span>
         </a>
         <span className="text-muted-foreground hidden md:inline">{time} · Pune</span>
       </header>

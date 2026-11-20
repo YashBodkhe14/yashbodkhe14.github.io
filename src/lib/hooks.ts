@@ -20,7 +20,7 @@ export function useCssVar(name: string) {
   const [v, setV] = useState(read)
   useEffect(() => {
     const mo = new MutationObserver(() => setV(read()))
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-palette'] })
     return () => mo.disconnect()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name])

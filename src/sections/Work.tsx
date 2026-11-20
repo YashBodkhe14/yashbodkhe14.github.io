@@ -18,16 +18,16 @@ function Art({ i }: { i: number }) {
     for (let y = 0; y < 14; y++)
       for (let x = 0; x < 11; x++) {
         const d = Math.hypot(x - 7, y - 4) / 9
-        els.push(<circle key={`${x}-${y}`} cx={x * 40 + 10} cy={y * 40 + 10} r={Math.max(0.5, 13 * (1 - d))} fill="var(--mint)" opacity={0.75} />)
+        els.push(<circle key={`${x}-${y}`} cx={x * 40 + 10} cy={y * 40 + 10} r={Math.max(0.5, 13 * (1 - d))} fill="var(--accent-2)" opacity={0.75} />)
       }
   } else if (k === 1) {
     for (let n = 0; n < 16; n++)
       els.push(<circle key={n} cx={280 - n * 6} cy={150 + n * 4} r={30 + n * 14} fill="none" stroke="var(--foreground)" strokeOpacity={0.08 + n * 0.015} />)
-    els.push(<circle key="sun" cx={280} cy={150} r={46} fill="var(--amber)" />)
+    els.push(<circle key="sun" cx={280} cy={150} r={46} fill="var(--accent)" />)
   } else if (k === 2) {
     for (let n = 0; n < 22; n++)
       els.push(<rect key={n} x={n * 22 - 60} y={-40} width={10} height={620} fill="var(--foreground)" opacity={0.07} transform="rotate(24 200 250)" />)
-    els.push(<rect key="sq" x={190} y={70} width={170} height={170} fill="var(--mint)" transform="rotate(12 275 155)" />)
+    els.push(<rect key="sq" x={190} y={70} width={170} height={170} fill="var(--accent-2)" transform="rotate(12 275 155)" />)
   } else {
     for (let y = 0; y < 10; y++)
       for (let x = 0; x < 8; x++) {
@@ -40,7 +40,7 @@ function Art({ i }: { i: number }) {
             width={26}
             height={26}
             fill="none"
-            stroke={hot ? 'var(--amber)' : 'var(--foreground)'}
+            stroke={hot ? 'var(--accent)' : 'var(--foreground)'}
             strokeOpacity={hot ? 1 : 0.2}
             transform={`rotate(${(Math.sin(x * 0.9 + y * 0.6) * 45).toFixed(0)} ${x * 50 + 25} ${y * 50 + 25})`}
           />,
@@ -91,8 +91,8 @@ export function Work() {
             <MagicCard
               key={p.name}
               mode="orb"
-              glowFrom="var(--amber)"
-              glowTo="var(--mint)"
+              glowFrom="var(--accent)"
+              glowTo="var(--accent-2)"
               className="group bg-surface relative min-h-[420px] [&>.z-40]:h-full w-full overflow-hidden rounded-3xl md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]"
             >
               <article className="relative flex h-full min-h-[420px] flex-col justify-between p-6">
@@ -121,10 +121,10 @@ export function Work() {
                   </ul>
                 </div>
               </article>
-              {i === 0 && <BorderBeam size={140} duration={9} colorFrom="var(--amber)" colorTo="var(--mint)" borderWidth={1.5} />}
+              {i === 0 && <BorderBeam size={140} duration={9} colorFrom="var(--accent)" colorTo="var(--accent-2)" borderWidth={1.5} />}
             </MagicCard>
           ))}
-          <div className="bg-mint text-on-accent flex min-h-[260px] items-center rounded-3xl p-8 md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]">
+          <div className="bg-accent2 text-on-accent flex min-h-[260px] items-center rounded-3xl p-8 md:aspect-[4/5] md:max-h-[calc(100svh-210px)] md:w-[clamp(300px,33vw,480px)]">
             <p className="font-display stretch-62 text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.9] font-black uppercase">
               More in
               <br />
