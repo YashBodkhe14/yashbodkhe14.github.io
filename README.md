@@ -20,7 +20,7 @@ Vendored so far (MIT, see `src/components/ui/MAGICUI_LICENSE.md`): marquee, numb
 
 ## What's in it
 
-- A "night shift" palette: deep teal control-room ground, amber for attention and mint for healthy, the two colours an on-call engineer watches. A variable-width display face (Archivo). The name in the hero stretches and thickens toward your cursor, and breathes on its own on touch screens.
+- The Oxblood palette: deep wine-red ground with warm orange and gold accents. Three more palettes (lilac, arctic, forest) live in `src/index.css`; change `data-palette` in `index.html` to switch. A variable-width display face (Archivo). The name in the hero stretches and thickens toward your cursor, and breathes on its own on touch screens.
 - Two crossing skill tapes that speed up when you scroll fast.
 - A manifesto that lights up word by word as you read.
 - A log of jobs and education that opens like a ledger.
